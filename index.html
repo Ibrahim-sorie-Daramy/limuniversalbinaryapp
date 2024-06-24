@@ -1,0 +1,554 @@
+
+
+      <!DOCTYPE html>
+      <html lang="en">
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <title> Universal Conversion System</title>
+          <link
+            rel="shortcut icon"
+            href="/Limkokwing-main/Limk.png"
+            type="image/x-icon"
+          />
+          <link rel="stylesheet" href="style.css" />
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          />
+        </head>
+        <body>
+          <header>
+            <div class="navbar" id="navbar">
+              <div class="navbar" id="navbar">
+                <div class="logo">
+                  <img src="Limk.png" alt="Limkokwing Logo" class="logo" />
+                  <h1 style="margin-right: 40px">
+                    Universal Conversion System
+                  </h1>
+                </div>
+      
+                <nav>
+                  <ul class="nav-links" id="navLinks">
+                    <li><a href="#converter">Converter</a></li>
+                    <li><a href="#instructions">Instructions</a></li>
+                    <li><a href="#learn">Learn</a></li>
+                   <!-- <li><a href="#donate">Donate</a></li>
+                    <li><a href="#developer">Developer</a></li>-->
+                  </ul>
+                  <button class="menu-toggle" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                  </button>
+                </nav>
+              </div>
+            </div>
+          </header>
+      
+          <div class="main-content">
+            <div class="container" id="converter">
+              <div class="content">
+                <h1 style="text-align: center; color: black;"><strong> Universal Conversion System</strong></h1>
+                <p style="text-align: center">
+                  Welcome! Please enter a binary number and select the conversion
+                  type.
+                </p>
+                <label for="inputNumber">Enter Number:</label>
+                <input type="text" id="inputNumber" placeholder="e.g. 1010 or 10"/>
+      
+                <label for="conversionTypeFrom">Convert From:</label>
+                <select id="conversionTypeFrom">
+                    <option value="binary">Binary</option>
+                    <option value="decimal">Decimal</option>
+                    <option value="octal">Octal</option>
+                    <option value="hexadecimal">Hexadecimal</option>
+                    <option value="ternary">Ternary</option>
+                    <option value="quinary">Quinary</option>
+                    <option value="duodecimal">Duodecimal</option>
+                    <option value="vigesimal">Vigesimal</option>
+                </select>
+      
+                <label for="conversionTypeTo">Convert To:</label>
+                <select id="conversionTypeTo">
+                    <option value="binary">Binary</option>
+                    <option value="decimal">Decimal</option>
+                    <option value="octal">Octal</option>
+                    <option value="hexadecimal">Hexadecimal</option>
+                    <option value="ternary">Ternary</option>
+                    <option value="quinary">Quinary</option>
+                    <option value="duodecimal">Duodecimal</option>
+                    <option value="vigesimal">Vigesimal</option>
+                </select>
+      
+                <button onclick="convert()">Convert</button>
+                <button class="small-button" onclick="showSteps()">Show Steps</button>
+                <button class="small-button" onclick="clearResult()">Clear</button>
+      
+                <div id="loading" class="loading">Loading...</div>
+      
+                <h2>Result:</h2>
+                <div id="result"></div>
+                <button class="small-button" onclick="copyResult()">
+                  Copy Result
+                </button>
+
+                <button class="small-button" onclick="openHistoryModal()">
+                  Conversion History
+                </button>
+              </div>
+            </div>
+
+            <!-- History Modal -->
+ <div id="historyModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeHistoryModal()">&times;</span>
+    <h2>Conversion History</h2>
+    <ul id="historyList"></ul>
+    <button class="small-button" onclick="clearConversionHistory()">Clear History</button>
+  </div>
+</div>
+            <div class="instructions" id="instructions">
+              <h2>About the Universal Conversion System</h2>
+              <p>
+                This Universal Conversion System is designed to help you quickly
+                convert numbers between Binary, Decimal, Octal, and Hexadecimal
+                formats in both directions. Whether you're a student learning about
+                number systems or a professional needing quick conversions, this tool
+                is here to assist you.
+              </p>
+              <p>
+                Simply enter a number in the input field, select the desired
+                conversion type and direction, and press the convert button. The
+                result will be displayed instantly.
+              </p>
+            </div>
+      
+            <div class="usage-guide">
+              <h2>Usage Guide</h2>
+              <ol>
+                <li>
+                  <span class="highlight">Enter Number:</span> Type the number you
+                  want to convert in the input field labeled "Enter Number".
+                </li>
+                <li>
+                  <span class="highlight">Select Conversion Type:</span> Choose the
+                  conversion type (Binary, Decimal, Octal, or Hexadecimal) from the
+                  dropdown menu.
+                </li>
+                <li>
+                  <span class="highlight">Convert:</span> Click the "Convert" button
+                  to see the conversion result instantly.
+                </li>
+                <li>
+                  <span class="highlight">Show Steps:</span> Click the "Show Steps"
+                  button to see the detailed steps taken to convert the number into
+                  the selected format.
+                </li>
+                <li>
+                  <span class="highlight">Clear:</span> Click the "Clear" button to
+                  clear the input field and the result display.
+                </li>
+              </ol>
+            </div>
+      
+            <div class="instructions" id="learn">
+              <h2 style="text-align: center">Learn</h2>
+              <hr />
+              <div class="instructions" id="learn">
+                <div class="container">
+                  <h2 style="text-align: center;">Number Systems</h2>
+                  <p>A number system is a writing system for expressing numbers. It is a mathematical notation for representing numbers of a given set, using digits or other symbols in a consistent manner. The choice of number system often depends on the specific application and context in which it is used.</p>
+                  
+                  <h2>Common Types of Number Systems</h2>
+                  <ul>
+                      <li><strong>Decimal (Base-10) Number System</strong>:<br>
+                          The most widely used number system, particularly in everyday life. Uses ten digits: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9. Each digit's position represents a power of 10.
+                      </li>
+                      <li><strong>Binary (Base-2) Number System</strong>:<br>
+                          Commonly used in computing and digital systems. Uses two digits: 0 and 1. Each digit's position represents a power of 2.
+                      </li>
+                      <li><strong>Octal (Base-8) Number System</strong>:<br>
+                          Uses eight digits: 0, 1, 2, 3, 4, 5, 6, 7. Each digit's position represents a power of 8. Sometimes used in computing as a more compact representation of binary numbers.
+                      </li>
+                      <li><strong>Hexadecimal (Base-16) Number System</strong>:<br>
+                          Uses sixteen symbols: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F. Each digit's position represents a power of 16. Often used in computing as a compact representation of binary numbers.
+                      </li>
+                      <li><strong>Ternary (Base-3) Number System</strong>:<br>
+                          Uses three digits: 0, 1, 2. Each digit's position represents a power of 3. Not commonly used in practical applications.
+                      </li>
+                      <li><strong>Quinary (Base-5) Number System</strong>:<br>
+                          Uses five digits: 0, 1, 2, 3, 4. Each digit's position represents a power of 5. Rarely used in modern applications.
+                      </li>
+                      <li><strong>Duodecimal (Base-12) Number System</strong>:<br>
+                          Uses twelve symbols: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A (for ten), B (for eleven). Each digit's position represents a power of 12. Historically used in some ancient cultures and still used in certain measurements like time and angles.
+                      </li>
+                      <li><strong>Vigesimal (Base-20) Number System</strong>:<br>
+                          Uses twenty symbols, typically the digits 0–9 and additional symbols for 10–19. Each digit's position represents a power of 20. Used in some ancient cultures, such as the Mayan civilization.
+                      </li>
+                  </ul>
+          
+                  <h2>Importance and Applications</h2>
+                  <p>Number systems are crucial in various fields such as mathematics, computing, and digital electronics. Understanding different number systems allows for efficient data representation, processing, and computation. For instance:</p>
+                  <ul>
+                      <li>In computer science, binary, octal, and hexadecimal systems are essential for understanding machine-level data.</li>
+                      <li>In digital electronics, binary numbers are used to design and analyze circuits.</li>
+                      <li>In everyday life, the decimal system is the standard for financial transactions, measurements, and most forms of communication.</li>
+                  </ul>
+          
+                  <h2>Conversion Between Number Systems</h2>
+                  <p>Conversions between different number systems are often necessary, especially in computing and digital electronics. For example, converting a binary number to a hexadecimal number can simplify the representation and make it easier to read and interpret. Conversion techniques include division-remainder methods, positional notation, and using conversion tables or algorithms.</p>
+                  <p>Understanding number systems and their conversions is fundamental for various technical fields and enhances problem-solving and analytical skills.</p>
+              </div>
+                <h2>Binary</h2>
+                <p>
+                  Binary number is a number expressed in the base 2 numeral system.
+                  Binary number's digits have 2 symbols: zero (0) and one (1). Each
+                  digit of a binary number counts a power of 2. Binary number example:
+                  1101<sub>2</sub> = 1×2<sup>3</sup> + 1×2<sup>2</sup> + 0×2<sup
+                    >1</sup
+                  >
+                  + 1×2<sup>0</sup> = 13<sub>10</sub>
+                </p>
+      
+                <h2>Decimal</h2>
+                <p>
+                  Decimal number is a number expressed in the base 10 numeral system.
+                  Decimal number's digits have 10 symbols: 0,1,2,3,4,5,6,7,8,9. Each
+                  digit of a decimal number counts a power of 10.
+                </p>
+                <h2>How to convert binary to decimal</h2>
+                <p>For binary number with n digits:</p>
+                <p>dn-1 ... d3 d2 d1 d0</p>
+                <p>
+                  The decimal number is equal to the sum of binary digits (dn) times
+                  their power of 2 (2n):
+                </p>
+                <p>
+                  decimal = d0×2<sup>0</sup> + d1×2<sup>1</sup> + d2×2<sup>2</sup> +
+                  ...
+                </p>
+                <h2>Binary to decimal conversion table</h2>
+                <table>
+                  <tr>
+                    <th>Binary Number</th>
+                    <th>Decimal Number</th>
+                    <th>Hex Number</th>
+                  </tr>
+                  <tr>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td>2</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>11</td>
+                    <td>3</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td>100</td>
+                    <td>4</td>
+                    <td>4</td>
+                  </tr>
+                  <tr>
+                    <td>101</td>
+                    <td>5</td>
+                    <td>5</td>
+                  </tr>
+                  <tr>
+                    <td>110</td>
+                    <td>6</td>
+                    <td>6</td>
+                  </tr>
+                  <tr>
+                    <td>111</td>
+                    <td>7</td>
+                    <td>7</td>
+                  </tr>
+                  <tr>
+                    <td>1000</td>
+                    <td>8</td>
+                    <td>8</td>
+                  </tr>
+                  <tr>
+                    <td>1001</td>
+                    <td>9</td>
+                    <td>9</td>
+                  </tr>
+                  <tr>
+                    <td>1010</td>
+                    <td>10</td>
+                    <td>A</td>
+                  </tr>
+                  <tr>
+                    <td>1011</td>
+                    <td>11</td>
+                    <td>B</td>
+                  </tr>
+                  <tr>
+                    <td>1100</td>
+                    <td>12</td>
+                    <td>C</td>
+                  </tr>
+                  <tr>
+                    <td>1101</td>
+                    
+                    <td>13</td>
+                    <td>D</td>
+                  </tr>
+      
+                  <tr>
+                    <td>1110</td>
+                    <td>14</td>
+                    <td>E</td>
+                  </tr>
+                  <tr>
+                    <td>1111</td>
+                    <td>15</td>
+                    <td>F</td>
+                  </tr>
+                </table>
+                <hr />
+                <h2>Hexadecimal</h2>
+                <p>
+                  Hexadecimal number is a number expressed in the base 16 numeral
+                  system. Hexadecimal number's digits have 16 symbols:
+                  0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F. Each digit of a hexadecimal number
+                  counts a power of 16. Hexadecimal number example: 62C<sub>16</sub> =
+                  6×16<sup>2</sup> + 2×16<sup>1</sup> + 12×16<sup>0</sup> = 1580<sub
+                    >10</sub
+                  >
+                </p>
+                <h2>How to convert binary to hex</h2>
+                <p>
+                  Convert every 4 binary digits (start from bit 0) to 1 hex digit,
+                  with this table:
+                </p>
+                <table>
+                  <tr>
+                    <th>Binary</th>
+                    <th>Hex</th>
+                  </tr>
+                  <tr>
+                    <td>0000</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>0001</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>0010</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>0011</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td>0100</td>
+                    <td>4</td>
+                  </tr>
+                  <tr>
+                    <td>0101</td>
+                    <td>5</td>
+                  </tr>
+                  <tr>
+                    <td>0110</td>
+                    <td>6</td>
+                  </tr>
+                  <tr>
+                    <td>0111</td>
+                    <td>7</td>
+                  </tr>
+                  <tr>
+                    <td>1000</td>
+                    <td>8</td>
+                  </tr>
+                  <tr>
+                    <td>1001</td>
+                    <td>9</td>
+                  </tr>
+                  <tr>
+                    <td>1010</td>
+                    <td>A</td>
+                  </tr>
+                  <tr>
+                    <td>1011</td>
+                    <td>B</td>
+                  </tr>
+                  <tr>
+                    <td>1100</td>
+                    <td>C</td>
+                  </tr>
+                  <tr>
+                    <td>1101</td>
+                    <td>D</td>
+                  </tr>
+                  <tr>
+                    <td>1110</td>
+                    <td>E</td>
+                  </tr>
+                  <tr>
+                    <td>1111</td>
+                    <td>F</td>
+                  </tr>
+                </table>
+                <hr />
+                <h2>Octal</h2>
+                <p>
+                  A number system which has its base as ‘eight’ is called an Octal
+                  number system. It uses numbers from 0 to 7. Let us take an example,
+                  to understand the concept. As we said, any number with base 8 is an
+                  octal number like 248, 1098, 558, etc.
+                </p>
+                <p>
+                  Like Octal number is represented with base 8, in the same way, a
+                  binary number is represented with base 2, a decimal number with base
+                  10 and the hexadecimal number is represented with base 16.
+                </p>
+                <h3>How to convert binary to octal</h3>
+                <p>
+                  Convert every 3 binary digits (start from bit 0) to 1 octal digit,
+                  with this table:
+                </p>
+                <table>
+                  <tr>
+                    <th>Binary</th>
+                    <th>Octal</th>
+                  </tr>
+                  <tr>
+                    <td>000</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>001</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>010</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>011</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td>100</td>
+                    <td>4</td>
+                  </tr>
+                  <tr>
+                    <td>101</td>
+                    <td>5</td>
+                  </tr>
+                  <tr>
+                    <td>110</td>
+                    <td>6</td>
+                  </tr>
+                  <tr>
+                    <td>111</td>
+                    <td>7</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+      
+           <!-- <div class="donate" id="donate">
+              <h2>Donate</h2>
+              <p>
+                If you find this tool helpful, consider supporting its development.
+                Your donations help us to improve the tool and add new features.
+              </p>
+              <button onclick="openDonateModal()">Donate</button>
+            </div>
+            
+            <div id="donateModal" class="modal">
+              <div class="modal-content">
+                
+              </div>
+            </div>
+          -->
+            
+            <div id="historyModal" class="modal">
+              <div class="modal-content">
+                <span class="close" onclick="closeHistoryModal()">&times;</span>
+                <h2>Conversion History</h2>
+                <ul id="historyList"></ul>
+                <button class="small-button" onclick="clearConversionHistory()">Clear History</button>
+              </div>
+            </div>
+            <!--
+            <div class="developer" id="developer">
+              <h2>About the Developer</h2>
+              <img
+                src="Developer.jpg"
+                alt="Ibrahim Sorie Daramy"
+                class="developer-image"
+              />
+              <p>
+                Hi, I'm Ibrahim Sorie Daramy, the developer behind this Universal
+                Conversion System. I am a passionate Software Engineering student with
+                a strong background in mathematics and Frontend Web Technologies such as HTML, CSS, JS, PHP and some PYTHON. I
+                created this tool to help students, educators, and professionals
+                seamlessly convert numbers between different numeral systems, making
+                complex conversions simple and accessible for everyone.
+              </p>
+              <p>
+                With a keen interest in educational technology, I have dedicated to be
+                developing tools and applications that enhance learning and improve
+                efficiency in problem-solving. The Universal Conversion System is one
+                of my key projects, designed to cater to the needs of individuals
+                working with various numerical bases, from binary and decimal to
+                hexadecimal and beyond.
+              </p>
+              <p>
+                I believe that education should be accessible to all, and technology
+                plays a crucial role in achieving this goal. This conversion tool is
+                part of my broader mission to create innovative solutions that empower
+                users to achieve their academic and professional objectives with ease.
+              </p>
+              <p>
+                If you have any feedback, suggestions, or ideas for new features, I
+                would love to hear from you. Your input is invaluable in helping me
+                improve and expand the capabilities of this tool.
+                <strong>Contact:</strong>
+                Email:<span style="color: blue"> daratech468@gmail.com</span>
+                <p>Tel: <span>+232 32025238 or 72724619</span></p>
+              </p>
+            </div>
+          </div>
+      -->
+          <footer class="footer">
+            <div class="footer-content">
+              <div class="social-icons">
+                <a href="https://www.facebook.com/p/Limkokwing-Sierra-Leone-100063778429058/" target="_blank">
+                  <i class="fa-brands fa-square-facebook"></i>
+                </a>
+                <a href="https://x.com/limkokwing_sl" target="_blank">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/limkokwing/?trk=public_profile_experience-item_profile-section-card_image-click&originalSubdomain=za" target="_blank">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/limkokwing/?hl=en">
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+                <!-- Add more social icons as needed -->
+              </div>
+              <p>&copy; 2024 Limkokwing Universal Conversion system.</p>
+              <p>Developed by <strong>Ibrahim Sorie Daramy</strong></p>
+            </div>
+          </footer>
+          <script src="scripts.js"></script>
+        </body>
+      </html>
+      
+      

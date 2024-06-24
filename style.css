@@ -1,0 +1,608 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa; /* Light gray background */
+  line-height: 1.6;
+  transition: background-color 0.3s;
+}
+
+body.dark-mode {
+  background-color: #343a40; /* Dark background */
+  color: #fff;
+}
+
+header {
+  background-color: #000000; /* Dark background for header */
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+  position: fixed; /* Fix the header at the top */
+  top: 0; /* Align it to the top */
+  width: 100%; /* Make it span the entire width */
+  z-index: 1000; /* Ensure it stays above other elements */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 90px; /* Adjusted height for logo */
+  vertical-align: middle;
+}
+
+.logo h1 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.nav-links {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #ffc107; /* Yellow color on hover */
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+}
+
+.menu-toggle:focus {
+  outline: none;
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+  margin-top: 8rem;
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 15px;
+  border: 1px solid #ced4da; /* Lighter border color */
+  border-radius: 4px;
+  transition: border-color 0.3s;
+  color: #343a40; /* Dark text color */
+  background-color: #fff; /* White background */
+}
+
+input[type="text"]:focus,
+select:focus {
+  border-color: #ffffff; /* Focus color */
+}
+
+button,
+.small-button {
+  background-color: #000000; /* Yellow button */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover,
+.small-button:hover {
+  background-color: #ffca28; /* Lighter yellow on hover */
+}
+
+.loading {
+  display: none;
+  text-align: center;
+  margin-top: 10px;
+  font-style: italic;
+  color: #777;
+}
+
+h2 {
+  margin-top: 20px;
+  color: #343a40; /* Dark heading color */
+}
+
+#result {
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.instructions,
+.usage-guide,
+.donate,
+.developer {
+  background-color: #fff;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px; /* Adjusted maximum width for sections */
+  margin: 20px auto; /* Centering sections */
+}
+
+.instructions h2,
+.usage-guide h2,
+.donate h2,
+.developer h2 {
+  color: #343a40; /* Dark heading color */
+  margin-bottom: 10px;
+}
+
+.instructions p,
+.usage-guide ol,
+.donate p,
+.developer p {
+  color: #666;
+}
+
+.highlight {
+  color: #ffc107; /* Yellow highlight */
+  font-weight: bold;
+}
+
+.usage-guide ol {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.donate button {
+  background-color: #dc3545; /* Red donate button */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.donate button:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+.developer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.developer-image {
+  width: 80px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.footer {
+  text-align: center;
+  background-color: #343a40; /* Dark footer background */
+  color: #fff;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.logo-converter {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo-converter img {
+  width: 100px; /* Adjust as needed */
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #000000; /* Dark footer background */
+  color: #fff;
+}
+
+.toggle-theme {
+  display: flex;
+  gap: 10px;
+}
+
+.toggle-theme button {
+  background-color: #007bff; /* Blue button */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.toggle-theme button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+@media only screen and (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background-color: #343a40; /* Dark background for the menu */
+    width: 100%;
+    top: 60px;
+    left: 0;
+    padding: 10px 0;
+    z-index: 1;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .nav-links li {
+    text-align: center;
+    width: 100%;
+    margin: 10px 0;
+  }
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 2;
+  }
+
+  body.dark-mode .nav-links {
+    background-color: #343a40; /* Dark background for the menu */
+  }
+
+  .container {
+    padding: 10px; /* Adjusted padding for smaller screens */
+  }
+
+  .main-content {
+    padding: 0 10px; /* Adjusted padding for smaller screens */
+  }
+
+  .instructions,
+  .usage-guide,
+  .donate,
+  .developer {
+    padding: 10px; /* Adjusted padding for smaller screens */
+    margin-top: 10px; /* Reduced margin top for smaller screens */
+  }
+
+  .developer {
+    margin-bottom: 3rem; /* Reduced margin bottom for smaller screens */
+  }
+
+  .footer-content {
+    flex-direction: column; /* Stack items in the footer vertically */
+    gap: 10px; /* Added gap between items */
+    padding: 10px;
+  }
+
+  .toggle-theme {
+    flex-direction: column; /* Stack theme toggle buttons vertically */
+  }
+
+  .social-icons {
+    justify-content: center; /* Center social icons in the footer */
+  }
+}
+
+@media print {
+  /* Custom styles for printing */
+  .menu-toggle,
+  .footer {
+    display: none; /* Hide menu toggle and footer on print */
+  }
+  .logo h1 {
+    font-size: 24px; /* Larger font size for logo in print */
+  }
+  .main-content,
+  .container,
+  .instructions,
+  .usage-guide,
+  .donate,
+  .developer {
+    margin: 0; /* Remove margins for print */
+    padding: 0; /* Remove padding for print */
+    border: none; /* Remove borders for print */
+    background: none; /* Remove background for print */
+    box-shadow: none; /* Remove box
+    shadow for print */
+    max-width: none; /* Remove max width for print */
+  }
+  .nav-links {
+    display: none; /* Hide navigation links for print */
+  }
+}
+
+/* Styles for tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: #fff; /* White background for table */
+}
+
+table,
+th,
+td {
+  border: 1px solid #ddd; /* Light gray borders */
+}
+
+th,
+td {
+  padding: 12px; /* Padding for table cells */
+  text-align: left; /* Left align text */
+}
+
+th {
+  background-color: #343a40; /* Dark background for header */
+  color: #fff; /* White text for header */
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2; /* Light gray background for even rows */
+}
+
+tr:hover {
+  background-color: #e9ecef; /* Light blue background on hover */
+}
+
+/* Additional styles for specific sections */
+.instructions table,
+.usage-guide table,
+.developer table,
+.donate table {
+  margin-top: 20px;
+}
+
+.instructions th,
+.usage-guide th,
+.developer th,
+.donate th {
+  background-color: #000000; /* Blue background for headers in sections */
+  color: #fff; /* White text for headers in sections */
+}
+
+/* Custom styles for donate section */
+.donate {
+  text-align: center;
+}
+
+.donate h2 {
+  color: #343a40;
+  margin-bottom: 10px;
+}
+
+.donate p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.donate button {
+  background-color: #dc3545; /* Red donate button */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.donate button:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+/* Modal styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Responsiveness for modal */
+@media screen and (max-width: 768px) {
+  .modal-content {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .modal-content {
+    width: 100%;
+  }
+}
+
+.developer {
+  background-color: #fff;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px; /* Adjusted maximum width for sections */
+  margin: 20px auto; /* Centering sections */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 9rem;
+}
+
+.developer-image {
+  width: 120px; /* Adjusted width for the developer image */
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.developer p {
+  color: #666;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.developer p strong {
+  display: block;
+  margin-top: 10px;
+}
+
+.developer p span {
+  color: blue;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+  text-align: center;
+  color: white;
+}
+
+p {
+  color: #666;
+}
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
